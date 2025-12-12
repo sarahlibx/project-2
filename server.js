@@ -48,9 +48,9 @@ app.get("/", async (req, res) => {
 });
 
 // GET VIP lounge access
-app.get("/vip-lounge", isSignedIn, (req, res) => {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-});
+// app.get("/vip-lounge", isSignedIn, (req, res) => {
+//     res.send(`Welcome to the party ${req.session.user.username}.`);
+// });
 
 // auth routes
 app.use("/auth", authController);
