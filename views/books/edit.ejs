@@ -28,6 +28,13 @@
         <option value="To Be Read"<%= book.status === 'To Be Read' ? 'selected' : '' %>>To Be Read</option>
       </select>
 
+      <label for="review">Review:</label>
+      <textarea 
+        name="review" 
+        id="review"
+        value="<%=book.review %>"
+        ></textarea>
+
       <button type="submit">Update bookshelf</button>
     </form>
     <a href="/users/<%= user._id %>/books">Back</a>

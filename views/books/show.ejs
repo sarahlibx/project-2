@@ -11,6 +11,12 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>Book on shelf: <%= book.title %></h1>
     <br />
+    <p>
+      Review: <%= book.review %> <% if (book.rating) { %> | Rating: <% const
+      maxStars = 5; %> <% for (let i = 1; i <= maxStars; i++) { %> <% if (i <=
+      book.rating) { %> ★ <% } else { %> ☆ <% } %> <% } %> <% } %>
+    </p>
+    <br />
     <a href="/users/<%= user._id %>/books/<%= book._id %>/edit">
       Edit this book
     </a>

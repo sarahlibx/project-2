@@ -1,0 +1,26 @@
+<!-- views/users/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= user.username %>'s Bookshelf</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Welcome to <%= user.username %>'s Bookshelf</h1>
+    <br />
+    <% if (user.bookshelf && user.bookshelf.length > 0) { %>
+    <ul>
+      <% user.bookshelf.forEach((book) => { %>
+      <li><%= book.title %></li>
+      <% }); %>
+    </ul>
+    <% } else { %>
+    <p>There are no books on <%= user.username %>'s shelf!</p>
+    <% } %>
+    <br />
+    <a href="/users/">Back to community</a>
+  </body>
+</html>
