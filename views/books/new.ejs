@@ -1,0 +1,31 @@
+<!-- views/books/new.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Book</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Book to Your Shelf</h1>
+
+    <form action="/users/<%= user._id %>/books" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required />
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" />
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="Read">Read</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Did Not Finish">Did Not Finish</option>
+        <option value="To Be Read">To Be Read</option>
+      </select>
+
+      <button type="submit">Add Book</button>
+    </form>
+
+    <p><a href="/users/<%= userId %>/books">Back to Bookshelf</a></p>
+  </body>
+</html>

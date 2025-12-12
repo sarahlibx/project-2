@@ -1,0 +1,35 @@
+<!-- views/books/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing <%= book.books %></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= book.books %></h1>
+    <form
+      action="/users/<%= user._id %>/books/<%= book._id %>?_method=PUT"
+      method="POST"
+    >
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= book.title %>" />
+
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="author" value="<%= book.author %>" />
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="Read"<%= book.status === 'Read' ? 'selected' : '' %>>Read</option>
+        <option value="In Progress"<%= book.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+        <option value="Did Not Finish"<%= book.status === 'Did Not Finish' ? 'selected' : '' %>>Did Not Finish</option>
+        <option value="To Be Read"<%= book.status === 'To Be Read' ? 'selected' : '' %>>To Be Read</option>
+      </select>
+
+      <button type="submit">Update bookshelf</button>
+    </form>
+    <a href="/users/<%= user._id %>/books">Back</a>
+  </body>
+</html>

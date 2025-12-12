@@ -24,7 +24,8 @@ router.post("/sign-up", async (req, res) => {
     // res.send(`Thanks for signing up ${user.username}`);
 
     req.session.user = {
-    username: user.username,
+        _id: user._id, 
+        username: user.username,
     };
 
     req.session.save(() => {
@@ -55,6 +56,7 @@ router.post("/sign-in", async (req, res) => {
     }
 
     req.session.user = {
+        _id: userInDatabase._id, 
         username: userInDatabase.username,
     };
 

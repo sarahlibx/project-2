@@ -1,0 +1,27 @@
+<!-- views/books/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= book.bookshelf %></title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Book on shelf: <%= book.title %></h1>
+    <br />
+    <a href="/users/<%= user._id %>/books/<%= book._id %>/edit">
+      Edit this book
+    </a>
+    <br />
+    <form
+      action="/users/<%= user._id %>/books/<%= book._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">Delete this book from my shelf</button>
+    </form>
+    <br />
+    <a href="/users/<%= user._id %>/books">Back to Bookshelf</a>
+  </body>
+</html>

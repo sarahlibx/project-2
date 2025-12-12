@@ -5,17 +5,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentication App</title>
+    <title>Book Tracker</title>
   </head>
   <body>
-    <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
+    <%- include('./partials/_navbar.ejs') %> <% if (user) { %>
+    <h1>Welcome to the TBR Book Tracker, <%= user.username %>!</h1>
+    <p>
+      A place to track the books you've read, the ones you haven't and to find
+      books you didn't know you needed to read!
+    </p>
 
     <p>
       <a href="/auth/sign-out">Sign out</a>
     </p>
     <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
+    <h1>Welcome to the TBR Book Tracker, guest.</h1>
     <p>
       <a href="/auth/sign-up">Sign up</a> or
       <a href="/auth/sign-in">sign in</a>.

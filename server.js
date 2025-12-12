@@ -15,6 +15,8 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 const port = process.env.PORT ? process.env.PORT : "3000";
 
 const authController = require("./controllers/auth.js");
+const booksController = require("./controllers/books.js");
+const usersController = require("./controllers/users.js");
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -47,13 +49,11 @@ app.get("/", async (req, res) => {
   res.render("index.ejs");
 });
 
-// GET VIP lounge access
-// app.get("/vip-lounge", isSignedIn, (req, res) => {
-//     res.send(`Welcome to the party ${req.session.user.username}.`);
-// });
-
 // auth routes
 app.use("/auth", authController);
+app.use(isSignedIn);
+app.use('/users/:userId/books', booksController);
+app.use('/users', usersController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
