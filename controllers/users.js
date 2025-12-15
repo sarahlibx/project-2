@@ -10,7 +10,7 @@ const methodOverride = require('method-override');
     try {
         const users = await User.find({});
 
-        res.render('users/index.ejs', { users });
+        res.render('users/index.ejs', { title: 'Fellow Readers', users });
 
     } catch (error) {
       console.log(error);
@@ -24,6 +24,7 @@ const methodOverride = require('method-override');
       const user = await User.findById(req.params.userId).populate('bookshelf');
 
       res.render('users/show.ejs', {
+        title: `${user.username}'s Bookshelf`,
         user
       });
     } catch (error) {

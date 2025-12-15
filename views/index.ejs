@@ -2,29 +2,36 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/stylesheets/style.css" />
-    <title>Book Tracker</title>
-  </head>
+  <%- include("partials/_head.ejs") %>
   <body>
-    <%- include('./partials/_navbar.ejs') %> <% if (user) { %>
-    <h1>Welcome to the TBR Book Tracker, <%= user.username %>!</h1>
+    <%- include('./partials/_navbar.ejs') %>
+    <div class="hero">
+      <div class="hero-text">
+        <% if (user) { %>
+        <h1>Welcome to the TBR Book Tracker, <%= user.username %>!</h1>
+        <p>
+          A place to track the books you've read, the ones you haven't and to
+          find books you didn't know you needed to read!
+        </p>
+        <% } else { %>
+        <h1>Welcome to the TBR Book Tracker, guest.</h1>
+        <p>
+          A place to track the books you've read, the ones you haven't and to
+          find books you didn't know you needed to read!
+        </p>
+        <p>
+          <a class="sign-up" href="/auth/sign-up">Sign up</a> or
+          <a class="sign-in" href="/auth/sign-in">Sign In</a>
+        </p>
+        <% } %>
+      </div>
+      <div class="hero-img">
+        <img src="/assets/bookstack.jpg" alt="hero-img" />
+      </div>
+    </div>
     <p>
-      A place to track the books you've read, the ones you haven't and to find
-      books you didn't know you needed to read!
+      We'll make it easy to track your reading and connect with other readers to
+      find your next TBR!
     </p>
-
-    <p>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
-    <% } else { %>
-    <h1>Welcome to the TBR Book Tracker, guest.</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">sign in</a>.
-    </p>
-    <% } %>
   </body>
 </html>

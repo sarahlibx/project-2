@@ -11,7 +11,9 @@ try {
     res.locals.bookshelf = user.bookshelf;
     res.locals.user = user;
       
-    res.render('books/index.ejs');
+    res.render('books/index.ejs', {
+      title: `${user.username}'s Bookshelf`
+    });
 
     } catch (error) {
       console.log(error);
@@ -22,7 +24,10 @@ try {
 
 // NEW - GET /users/:userId/books/new
 router.get('/new', (req, res) => {
-    res.render('books/new.ejs', { userId: req.session.user_id });
+    res.render('books/new.ejs', {
+      title: 'Add New Book',
+      userId: req.session.user._id 
+    });
 });
 
 // CREATE - POST /users/:userId/books
@@ -52,6 +57,7 @@ router.get('/:itemId', async (req, res) => {
       const book = user.bookshelf.id(req.params.itemId);
       
       res.render('books/show.ejs', {
+        title: `Edit: ${book.title}`,
         user,
         book
       });
@@ -87,7 +93,8 @@ router.get('/:itemId', async (req, res) => {
 
       // res.locals.book = book;
 
-      res.render('books/edit.ejs', { user, book });
+      res.render('books/edit.ejs', { 
+        title: 'Edit book', user, book });
 
     } catch (error) {
       console.log(error);

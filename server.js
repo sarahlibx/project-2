@@ -60,7 +60,9 @@ app.use((req, res, next) => {
 
 // GET /landing page
 app.get("/", async (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", {
+    title: 'TBR Book Tracker'
+  });
 });
 
 // auth routes
@@ -70,8 +72,8 @@ app.use('/users/:userId/books', booksController);
 app.use('/users', usersController);
 
 // undefined route handler
-app.get(/.*/, function (req, res) {
-  res.render("error.ejs", { msg: "Page not found!" });
+app.all(/.*/, function (req, res) {
+  res.status(404).render("error.ejs", { title: 'Error Page', msg: "Page not found!" });
 });
 
 app.listen(port, () => {

@@ -1,9 +1,7 @@
 <!-- views/books/new.ejs -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Add New Book</title>
-  </head>
+  <%- include("../partials/_head.ejs") %>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a New Book to Your Shelf</h1>
@@ -58,6 +56,6 @@
       <button type="submit">Add Book</button>
     </form>
 
-    <p><a href="/users/<%= userId %>/books">Back to Bookshelf</a></p>
+    <p><a href="/users/<%= user._id %>/books">Back to Bookshelf</a></p>
   </body>
 </html>

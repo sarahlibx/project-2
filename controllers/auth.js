@@ -5,7 +5,9 @@ const bcrypt = require("bcrypt");
 
 // GET landing page for sign up
 router.get("/sign-up", (req, res) => {
-  res.render("auth/sign-up.ejs");
+  res.render("auth/sign-up.ejs", {
+    title: "Sign Up"
+  });
 });
 
 // POST create a new account w/checks for username & password validation
@@ -35,7 +37,9 @@ router.post("/sign-up", async (req, res) => {
 
 // GET sign in page
 router.get("/sign-in", (req, res) => {
-  res.render("auth/sign-in.ejs");
+  res.render("auth/sign-in.ejs", {
+    title: "Sign In"
+  });
 });
 
 // POST sign in w/checks for username & password validation
