@@ -6,10 +6,15 @@
   <body>
     <%- include('./partials/_navbar.ejs') %>
     <div class="hero">
+      <div class="hero-img">
+        <img src="/assets/books.jpg" alt="shelf of books" />
+      </div>
       <div class="hero-text">
         <% if (user) { %>
-        <h1>Welcome to the TBR Book Tracker, <%= user.username %>!</h1>
-        <p>
+        <h1 class="hero-header">
+          Welcome to the TBR Book Tracker, <%= user.username %>!
+        </h1>
+        <p class="hero-p">
           A place to track the books you've read, the ones you haven't and to
           find books you didn't know you needed to read!
         </p>
@@ -19,19 +24,43 @@
           A place to track the books you've read, the ones you haven't and to
           find books you didn't know you needed to read!
         </p>
-        <p>
-          <a class="sign-up" href="/auth/sign-up">Sign up</a> or
+        <div class="landing-signup">
+          <a class="sign-up sign-up-btn" href="/auth/sign-up">Sign up</a> or
           <a class="sign-in" href="/auth/sign-in">Sign In</a>
-        </p>
+        </div>
         <% } %>
       </div>
-      <div class="hero-img">
-        <img src="/assets/bookstack.jpg" alt="hero-img" />
-      </div>
     </div>
-    <p>
-      We'll make it easy to track your reading and connect with other readers to
-      find your next TBR!
-    </p>
+    <section class="mission-section">
+      <div class="mission-content">
+        <p>
+          We make it easy to <strong>track your reading</strong> and
+          <strong>connect with other readers</strong>
+          find your next TBR!
+        </p>
+        <p>
+          Not sure what book to pick up next?
+          <a href="/auth/sign-up" class="sign-up-link">Join our community</a>
+          and find your next favorite read.
+        </p>
+      </div>
+      <div class="mission-img">
+        <img class="bookstack" src="/assets/openbook.jpg" alt="open book" />
+      </div>
+    </section>
+    <section class="faq">
+      <div class="faq-questions">
+        <h2>Frequently asked questions:</h2>
+        <h3>Is the TBR Tracker free to use?</h3>
+        <p>It is and will always be free to use!</p>
+        <h3>Who is behind the TBR Tracker?</h3>
+        <p>
+          It is run and built by Sarah Smith, a life long book reader and lover.
+          What started as a passion project became more -- and it is still being
+          built upon daily.
+        </p>
+      </div>
+    </section>
   </body>
+  <%- include("partials/_footer.ejs") %>
 </html>
