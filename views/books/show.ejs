@@ -18,8 +18,7 @@
 
       <% if (book.rating) { %> 
         Rating: 
-      <% const maxStars = 5; %> 
-      <% for (let i = 1; i <= maxStars; i++) { %>
+      <% for (let i = 1; i <= 5; i++) { %>
       <%= i <= book.rating ? "★" : "☆"%> 
       <% } %> 
       <% } %>

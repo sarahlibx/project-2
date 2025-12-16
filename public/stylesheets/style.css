@@ -376,9 +376,7 @@ nav {
 .rating {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start; 
-  border: none;
-  padding: 0;
+  justify-content: flex-start;
 }
 
 .rating input {
@@ -386,27 +384,18 @@ nav {
 }
 
 .rating label {
-  font-size: 2em;
-  color: #ccc; 
   cursor: pointer;
-  margin-right: 5px;
-  transition: color 0.2s;
+  font-size: 2rem;
+  color: #ccc;
 }
 
 /* Highlight stars on hover */
-.rating label:hover,
-.rating label:hover ~ label {
-  color: #ccc; 
-}
-
 .rating label:hover,
 .rating label:hover ~ label {
   color: gold;
 }
 
 /* Highlight selected stars */
-.rating input:checked ~ label,
-.rating input:checked + label,
-.rating input:checked {
+.rating input:checked ~ label {
   color: gold;
 }

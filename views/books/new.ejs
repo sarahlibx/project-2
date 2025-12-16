@@ -28,9 +28,9 @@
       <label for="rating">Rating:</label>
       <fieldset class="rating">
         <% const ratingValue = (typeof book !== 'undefined' && book.rating) ?
-        book.rating : null; for (let i = 1; i <=5; i++) { %> <input type="radio"
-        id="star<%= i %>" name="rating" value="<%= i %>" <%= ratingValue === i ?
-        'checked' : '' %> />
+        Number(book.rating) : null; for (let i = 5; i >=1; i--) { %> <input
+        type="radio" id="star<%= i %>" name="rating" value="<%= i %>" <%=
+        ratingValue === i ? 'checked' : '' %> />
         <label for="star<%= i %>" title="<%= i %> stars">★</label>
         <% } %>
       </fieldset>
