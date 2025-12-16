@@ -24,33 +24,15 @@
       <label for="review">Review:</label>
       <textarea name="review" id="review"></textarea>
 
+      <!-- Rating -->
       <label for="rating">Rating:</label>
       <fieldset class="rating">
-        <input type="radio" id="star5" name="rating" value="5" /><label
-          for="star5"
-          title="5 stars"
-          >★</label
-        >
-        <input type="radio" id="star4" name="rating" value="4" /><label
-          for="star4"
-          title="4 stars"
-          >★</label
-        >
-        <input type="radio" id="star3" name="rating" value="3" /><label
-          for="star3"
-          title="3 stars"
-          >★</label
-        >
-        <input type="radio" id="star2" name="rating" value="2" /><label
-          for="star2"
-          title="2 stars"
-          >★</label
-        >
-        <input type="radio" id="star1" name="rating" value="1" /><label
-          for="star1"
-          title="1 star"
-          >★</label
-        >
+        <% const ratingValue = (typeof book !== 'undefined' && book.rating) ?
+        book.rating : null; for (let i = 1; i <=5; i++) { %> <input type="radio"
+        id="star<%= i %>" name="rating" value="<%= i %>" <%= ratingValue === i ?
+        'checked' : '' %> />
+        <label for="star<%= i %>" title="<%= i %> stars">★</label>
+        <% } %>
       </fieldset>
 
       <button type="submit">Add Book</button>

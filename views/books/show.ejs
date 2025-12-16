@@ -10,11 +10,19 @@
       <h1 class="selected-book">Book on shelf: <%= book.title %></h1>
       <h2 class="title-author"><%= book.title %> by <%= book.author %></h2>
 
-      <% if (book.review) { %>
+      <% if (book.review || book.rating) { %>
       <p class="rating-review">
-        Review: <%= book.review %> <% if (book.rating) { %> | Rating: <% const
-        maxStars = 5; %> <% for (let i = 1; i <= maxStars; i++) { %> <%= i <=
-        book.rating ? "★" : "☆" %> <% } %> <% } %>
+        <% if (book.review) { %>
+        Review: <%= book.review %></p>
+      <% } %>
+
+      <% if (book.rating) { %> 
+        Rating: 
+      <% const maxStars = 5; %> 
+      <% for (let i = 1; i <= maxStars; i++) { %>
+      <%= i <= book.rating ? "★" : "☆"%> 
+      <% } %> 
+      <% } %>
       </p>
       <% } %>
 

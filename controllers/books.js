@@ -37,7 +37,9 @@ router.post('/', async (req, res) => {
     user.bookshelf.push({ 
         title: req.body.title,
         author: req.body.author,
-        status: req.body.status 
+        status: req.body.status,
+        review: req.body.review,
+        rating: req.body.rating ? Number(req.body.rating) : undefined
     });
     await user.save();
     req.session.message = "Book successfully added.";

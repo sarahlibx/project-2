@@ -7,7 +7,7 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Edit <%= book.books %></h1>
+    <h1>Edit <%= book.title %></h1>
 
     <form
       action="/users/<%= user._id %>/books/<%= book._id %>?_method=PUT"
@@ -42,24 +42,25 @@
 
       <!-- Review -->
       <label for="review">Review:</label>
-      <textarea 
-        name="review" 
-        id="review"
-      ><%= book.review %></textarea>
+      <textarea name="review" id="review"><%= book.review %></textarea>
 
       <!-- Rating -->
       <label for="rating">Rating:</label>
-      <select id="rating" name="rating">
-        <option value="">No rating</option>
-        <% for (let i = 1; i <= 5; i++) { %>
-          <option 
-            value="<%= i %>" 
-            <%= book.rating === i ? 'selected' : '' %>
-          >
-            <%= i %>
-          </option>
+      <fieldset class="rating">
+        <% 
+          const ratingValue = (typeof book !== 'undefined' && book.rating) ? book.rating : null;
+          for (let i = 1; i <=5; i++) { 
+        %>
+          <input
+            type="radio"
+            id="star<%= i %>"
+            name="rating"
+            value="<%= i %>"
+            <%= ratingValue === i ? 'checked' : '' %>
+          />
+          <label for="star<%= i %>" title="<%= i %> stars">★</label>
         <% } %>
-      </select>
+      </fieldset>
 
       <!-- Submit -->
       <button type="submit">Update bookshelf</button>
@@ -67,5 +68,6 @@
 
     <a href="/users/<%= user._id %>/books">Back</a>
   </body>
+
   <%- include("../partials/_footer.ejs") %>
 </html>
