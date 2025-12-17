@@ -5,19 +5,31 @@
   <%- include("../partials/_head.ejs") %>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to <%= user.username %>'s Bookshelf</h1>
-    <br />
-    <% if (user.bookshelf && user.bookshelf.length > 0) { %>
-    <ul>
-      <% user.bookshelf.forEach((book) => { %>
-      <li><%= book.title %></li>
-      <% }); %>
-    </ul>
-    <% } else { %>
-    <p>There are no books on <%= user.username %>'s shelf!</p>
-    <% } %>
-    <br />
-    <a href="/users/">Back to community</a>
+    <section class="page-section">
+      <div class="page-content">
+        <section class="user-bookshelf">
+          <h1 class="book-community">
+            Welcome to <%= user.username %>'s Bookshelf
+          </h1>
+          <br />
+          <div class="users book-details">
+            <% if (user.bookshelf && user.bookshelf.length > 0) { %>
+            <ul class="users-books">
+              <% user.bookshelf.forEach((book) => { %>
+              <li class="user-book"><%= book.title %></li>
+              <% }); %>
+            </ul>
+            <% } else { %>
+            <p>There are no books on <%= user.username %>'s shelf!</p>
+            <% } %>
+            <br />
+          </div>
+          <div class="back-community-btn">
+            <a href="/users/">Back to community</a>
+          </div>
+        </section>
+      </div>
+    </section>
   </body>
   <%- include("../partials/_footer.ejs") %>
 </html>
