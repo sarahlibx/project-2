@@ -384,12 +384,28 @@ nav {
   align-items: center;  
 }
 
+.add-book {
+  display: inline-block;
+}
+
  .add-new-book {
   color: white;
   background-color: #f95285;
   padding: 10px;
   height: 30px;
-  transition: transform 0.2s ease-in-out;
+}
+
+.add-new-book:hover {
+  /* background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%); */
+  background: linear-gradient(45deg,rgba(249, 82, 133, 1) 0%, rgba(253, 145, 46, 1) 50%, rgba(255, 255, 255, 1) 100%);
+  animation: shimmer 1s infinite linear;
+  background-size: 150%;
+}
+
+@keyframes shimmer {
+   to {
+      background-position-x: 0%
+   }
 }
 
 .book-details {
