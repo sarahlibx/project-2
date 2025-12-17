@@ -384,15 +384,32 @@ nav {
   align-items: center;  
 }
 
+.book-updates {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  width: auto;
+  max-width: 100%;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 .add-book {
-  display: inline-block;
+  margin: 0;
 }
 
  .add-new-book {
+  font-size: 1.1rem;
   color: white;
   background-color: #f95285;
   padding: 10px;
-  height: 30px;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-new-book:hover {
@@ -406,6 +423,28 @@ nav {
    to {
       background-position-x: 0%
    }
+}
+
+.status-filter {
+  flex: 1 1 200px;
+  padding: 0;
+}
+
+.status-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 1.1rem;
+}
+
+#statusFilter {
+  font-size: 1.1rem;
+  width:100%;
+  width: 250px;
+  height: 40px;
 }
 
 .book-details {

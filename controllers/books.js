@@ -7,12 +7,23 @@ const methodOverride = require('method-override');
 router.get('/', async (req, res) => {
 try {
     const user = await User.findById(req.session.user._id);
+    // show books from newest added to oldest
+    let bookshelf = [...user.bookshelf].reverse();
+
+    if (req.query.status && req.query.status !== 'all') {
+      bookshelf = bookshelf.filter(
+        book => book.status === req.query.status
+      );
+    }
 
     res.locals.bookshelf = user.bookshelf;
     res.locals.user = user;
       
     res.render('books/index.ejs', {
-      title: `${user.username}'s Bookshelf`
+      title: `${user.username}'s Bookshelf`,
+      user,
+      bookshelf,
+      selectedStatus: req.query.status || 'all'
     });
 
     } catch (error) {

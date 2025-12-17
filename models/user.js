@@ -21,7 +21,7 @@ const mongoose = require("mongoose");
       type: Number,
       min: 1,
       max: 5,
-    }
+    },
   });
 
 const userSchema = new mongoose.Schema({

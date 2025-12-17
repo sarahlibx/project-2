@@ -13,12 +13,30 @@
           <%_ if (typeof message !== 'undefined') { _%>
           <h3 id="flash-message" class="alert"><%= message %></h3>
           <%_ } _%>
+
+          <div class="book-updates">
           <!-- NEW BOOK -->
           <h3 class="add-book">
             <a class="add-new-book" href="/users/<%= user._id %>/books/new"
               >Add New Book</a
             >
           </h3>
+
+          <!-- FILTER BOOKS BY STATUS -->
+           <div class="status-filter">
+        <form class='status-dropdown' method="GET">
+          <label class='filter-label' for="status">Filter:</label>
+            <select name='status' id="statusFilter" onchange="this.form.submit()">
+            <option value="all"<%= selectedStatus === 'all' ? 'selected' : '' %>>All</option>
+            <option value="Read"<%= selectedStatus === 'Read' ? 'selected' : '' %>>Read</option>
+            <option value='In Progress'<%= selectedStatus === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+            <option value="Did Not Finish"<%= selectedStatus === 'Did Not Finish' ? 'selected' : '' %>>Did Not Finish</option>
+            <option value="To Be Read"<%= selectedStatus === 'To Be Read' ? 'selected' : '' %>>To Be Read</option>
+          </select>
+          </form>
+          </div>
+        </div>
+
           <div class="book-details">
             <% if (bookshelf && bookshelf.length > 0) { %>
             <ul class="books-on-shelf">
@@ -59,7 +77,7 @@
                 </div>
               </li>
               <% }); %>
-            </ul>
+
             <% } else { %>
             <p>No books on your bookshelf yet.</p>
             <% } %>
