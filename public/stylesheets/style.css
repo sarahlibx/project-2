@@ -417,6 +417,7 @@ nav {
   padding: 0;
   font-size: 1.2em;
 }
+
 .book {
   display: flex;
   flex-direction: column;
@@ -510,3 +511,27 @@ textarea::placeholder {
   font-weight: 400;                  
 }
 
+/* community users page */
+
+.book-community {
+  display: flex;
+
+}
+
+.user-action {
+  text-align: center;
+  max-width: 500px;
+}
+
+.app-users{
+  list-style: none;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,17 +5,28 @@
   <%- include("../partials/_head.ejs") %>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Book Community</h1>
+    <section class="page-section">
+      <div class="page-content">
+        <section class="user-bookshelf">
+          <h1 class="book-community">Book Community</h1>
 
-    <p>Explore other members and get inspired by their bookshelf!</p>
-
-    <ul>
-      <% users.forEach(user => { %>
-      <li>
-        <a href="/users/<%= user._id %>"><%= user.username %></a>
-      </li>
-      <% }) %>
-    </ul>
+          <h2 class="user-action">
+            Explore other members recent reads and get inspired by their
+            bookshelf!
+          </h2>
+          <p>Select a user below to see what they've been reading...</p>
+          <div class="users book-details">
+            <ul class="app-users">
+              <% users.forEach(user => { %>
+              <li class="user">
+                <a href="/users/<%= user._id %>"><%= user.username %></a>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
   </body>
   <%- include("../partials/_footer.ejs") %>
 </html>
