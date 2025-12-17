@@ -11,22 +11,20 @@
           <h1 class="book-community">
             Welcome to <%= user.username %>'s Bookshelf
           </h1>
-          <br />
           <div class="users book-details">
             <% if (user.bookshelf && user.bookshelf.length > 0) { %>
             <ul class="users-books">
               <% user.bookshelf.forEach((book) => { %>
-              <li class="user-book"><%= book.title %></li>
+              <li class="user-book">
+                Title: <%= book.title %> | Author: <%= book.author %>
+              </li>
               <% }); %>
             </ul>
             <% } else { %>
             <p>There are no books on <%= user.username %>'s shelf!</p>
             <% } %>
-            <br />
           </div>
-          <div class="back-community-btn">
-            <a href="/users/">Back to community</a>
-          </div>
+          <a class="back-btn edit-back" href="/users/">Back to community</a>
         </section>
       </div>
     </section>

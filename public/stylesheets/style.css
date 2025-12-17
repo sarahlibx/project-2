@@ -586,8 +586,8 @@ textarea::placeholder {
 .user-book {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
 }
 
 .back-community-btn {
