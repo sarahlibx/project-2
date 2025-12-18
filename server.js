@@ -3,6 +3,7 @@ dotenv.config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const axios = require('axios');
 
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -57,6 +58,9 @@ app.use((req, res, next) => {
   }
   next();
 });
+// API related 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // GET /landing page
 app.get("/", async (req, res) => {

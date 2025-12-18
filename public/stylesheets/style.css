@@ -593,3 +593,8 @@ textarea::placeholder {
 .back-community-btn {
   display: flex;
 }
+
+/* auth styling */
+.auth-box {
+  margin: 10px 0;
+}

@@ -1,0 +1,36 @@
+<!-- views/books/search.ejs -->
+<h1>Search Books</h1>
+
+<form method="POST" action="/users/<%= user._id %>/books/search">
+  <input type="text" name="query" placeholder="Search books..." required />
+  <button type="submit">Search</button>
+</form>
+
+<% if (results) { %>
+<ul>
+  <% results.forEach(book => { %>
+  <li>
+    <img src="<%= book.thumbnail %>" width="80" />
+    <strong><%= book.title %></strong>
+
+    <form method="POST" action="/users/<%= user._id %>/books/google">
+      <input type="hidden" name="title" value="<%= book.title %>" />
+      <input
+        type="hidden"
+        name="authors"
+        value="<%= book.authors.join(',') %>"
+      />
+      <input type="hidden" name="thumbnail" value="<%= book.thumbnail %>" />
+      <input
+        type="hidden"
+        name="publishedDate"
+        value="<%= book.publishedDate %>"
+      />
+      <input type="hidden" name="source" value="google" />
+
+      <button>Add to Shelf</button>
+    </form>
+  </li>
+  <% }) %>
+</ul>
+<% } %>

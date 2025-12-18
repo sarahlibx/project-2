@@ -10,7 +10,9 @@
         <div class="edit-book-form">
           <h1 class="adding-book">Add a New Book to Your Shelf</h1>
 
-          <form action="/users/<%= user._id %>/books" method="POST">
+          <form action="/users/<%= user._id %>/books/manual" method="POST">
+            <input type="hidden" name="source" value="manual" />
+            
             <section class="edit-boxes">
               <div class="input-box">
                 <!-- Title -->
@@ -27,8 +29,8 @@
 
               <!-- Author -->
               <div class="input-box">
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" class="form-box" placeholder="required"/>
+                <label for="authors">Author:</label>
+                <input type="text" id="authors" name="authors" class="form-box" placeholder="required"/>
               </div>
 
               <!-- Status -->

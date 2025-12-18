@@ -3,14 +3,24 @@
 <html lang="en">
   <%- include("../partials/_head.ejs") %>
   <body>
-    <h1>Sign in</h1>
-    <form action="/auth/sign-in" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Sign in</button>
-    </form>
+    <section class="page-section">
+      <div class="page-content">
+        <h1 class="auth">Sign in</h1>
+
+        <section class="edit-boxes">
+          <div class="auth-box">
+            <form action="/auth/sign-in" method="POST">
+              <label for="username">Username:</label>
+              <input type="text" name="username" id="username" />
+
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" />
+              <button type="submit">Sign in</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
   </body>
   <%- include("../partials/_footer.ejs") %>
 </html>

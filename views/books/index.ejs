@@ -15,6 +15,12 @@
           <%_ } _%>
 
           <div class="book-updates">
+          <!-- SEARCH FOR A BOOK -->
+           <h3 class="search-book">
+            <a class="search-new-book" href="/users/<%= user._id %>/books/search"
+              >Search for a Book</a
+            >
+          </h3>
           <!-- NEW BOOK -->
           <h3 class="add-book">
             <a class="add-new-book" href="/users/<%= user._id %>/books/new"
@@ -42,7 +48,7 @@
             <ul class="books-on-shelf">
               <% bookshelf.forEach((book) => { %>
               <li class="book">
-                Title: <%= book.title %> | Author: <%= book.author %> | Status:
+                Title: <%= book.title %> | Author: <%= book.authors %> | Status:
                 <%= book.status %>
                 <br />
                 <div class="btns">
