@@ -27,8 +27,7 @@
   | <h3>Home Page</h3> | <img width="700" alt="Image" src="https://github.com/user-attachments/assets/742e1f83-ba94-4628-aad5-cb467735f66a" /> |
   | <h3 align="center">User Bookshelf</h3> | <img width="700" alt="Image" src="https://github.com/user-attachments/assets/839ef215-0504-46cf-90a7-233bc83e25ac" /> |
 
-    ## :computer: Technologies Used
-  A screenshot of your app's landing page and any other screenshots of interest.
+   ## :computer: Technologies Used
 
   ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
   ![Express](https://img.shields.io/badge/-Express-05122A?style=flat&logo=express)
@@ -76,8 +75,8 @@
 
 ## :satellite: Upcoming Features
 
-- [:star:] Filter bookshelf A-Z or by highest rated; display top 3 "favorites" at top of bookshelf
+- Filter bookshelf A-Z or by highest rated; display top 3 "favorites" at top of bookshelf
 
-- [:x:] Modify sign up/sign in routes to normalize username's with capital or lowercase letters (to prevent sign in errors!)
+- Modify sign up/sign in routes to normalize username's with capital or lowercase letters (to prevent sign in errors!)
 
-- [:x:] Improve Error.ejs page to display error message for the given error, rather than just 'error'
+- Improve Error.ejs page to display error message for the given error, rather than just 'error'
