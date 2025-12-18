@@ -7,34 +7,47 @@
       <div class="page-content">
         <h1>Create a new account!</h1>
 
-        <form action="/auth/sign-up" method="POST">
-          <label class="auth-input" for="username">Username:</label>
-          <input class="auth-input" type="text" name="username" id="username" />
+        <section class="edit-boxes">
+          <div class="auth-box">
+            <form class="auth-sign-up" action="/auth/sign-up" method="POST">
+              <label class="auth-input username" for="username"
+                >Username:</label
+              >
+              <input
+                class="auth-input username"
+                type="text"
+                name="username"
+                id="username"
+              />
 
-          <label class="auth-input" for="password">Password:</label>
-          <input
-            class="auth-input"
-            type="password"
-            name="password"
-            id="password"
-          />
+              <label class="auth-input password" for="password"
+                >Password:</label
+              >
+              <input
+                class="auth-input password"
+                type="password"
+                name="password"
+                id="password"
+              />
 
-          <label class="auth-input" for="confirmPassword"
-            >Confirm Password:</label
-          >
-          <input
-            class="auth-input"
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-          />
+              <label class="auth-input password" for="confirmPassword"
+                >Confirm Password:</label
+              >
+              <input
+                class="auth-input password"
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+              />
 
-          <button class="auth-btn auth-input" type="submit">Sign up</button>
-        </form>
+              <button class="auth-btn auth-input" type="submit">Sign up</button>
+            </form>
 
-        <br />
+            <br />
 
-        <a href="/">Go Back</a>
+            <a href="/">Go Back</a>
+          </div>
+        </section>
       </div>
     </section>
   </body>
