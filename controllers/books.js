@@ -30,7 +30,6 @@ try {
     } catch (error) {
       console.log(error);
       res.render("error.ejs", { msg: error.message });
-      // res.redirect('/');
     }
 });
 
@@ -137,14 +136,13 @@ router.get('/:itemId', async (req, res) => {
       const book = user.bookshelf.id(req.params.itemId);
       
       res.render('books/show.ejs', {
-        title: `Edit: ${book.title}`,
+        title: `${book.title}`,
         user,
         book
       });
     } catch (error) {
       console.log(error);
       res.render("error.ejs", { msg: error.message });
-      // res.redirect('/');
     }
   });
 
@@ -161,7 +159,6 @@ router.get('/:itemId', async (req, res) => {
     } catch (error) {
       console.log(error);
       res.render("error.ejs", { msg: error.message });
-      // res.redirect('/');
     }
   });
 
@@ -171,15 +168,12 @@ router.get('/:itemId', async (req, res) => {
       const user = await User.findById(req.session.user._id);
       const book = user.bookshelf.id(req.params.itemId);
 
-      // res.locals.book = book;
-
       res.render('books/edit.ejs', { 
         title: 'Edit book', user, book });
 
     } catch (error) {
       console.log(error);
       res.render("error.ejs", { msg: error.message });
-      // res.redirect('/');
     }
   });
 

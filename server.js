@@ -80,15 +80,6 @@ app.all(/.*/, function (req, res) {
   res.status(404).render("error.ejs", { title: 'Error Page', msg: "Page not found!" });
 });
 
-// error route handler
-// app.use((err, req, res, next) => {
-//   res.status(err.status || 500).render('error', {
-//     title: `Error {$err.status || 500}`,
-//     msg: err.message,
-//     status: err.status || 500
-//   });
-// });
-
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });

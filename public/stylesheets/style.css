@@ -298,6 +298,13 @@ nav {
   border: none;
 }
 
+.user-bookshelf .edit-btn,
+.user-bookshelf .delete-btn,
+.user-bookshelf .details-btn {
+  font-size: 0.9em;
+  padding: 6px 10px;
+}
+
 .edit-btn:hover, .delete-btn:hover, .back-btn:hover, .details-btn:hover, .update-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

@@ -3,11 +3,19 @@ const mongoose = require("mongoose");
   const bookSchema = new mongoose.Schema({
     title: {
       type: String,
-      required: true
+      required: true,
+      set: value => value.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ")
     },
     authors: {
       type: [String],
-      default: []
+      default: [],
+      set: value => {
+        if (!Array.isArray(value)) value = [value];
+        
+        return value.map(author => 
+          author .split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ")
+        );
+      }
     },
     thumbnail: {
       type: String,
