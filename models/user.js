@@ -21,6 +21,10 @@ const mongoose = require("mongoose");
       type: String,
       default: ''
     },
+    isFavorite: {
+      type: Boolean,
+      default: false
+    },
     publishedDate: {
       type: String,
       default: ''

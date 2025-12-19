@@ -12,6 +12,19 @@
 
           <h1>Welcome to your bookshelf, <%= user.username %>!</h1>
 
+          <div class="favorites">
+            <h2><%= user.username %>'s Favorite Reads</h2> 
+            <div class="favorites-list">
+              <% favorites.forEach(book => { %>
+              <div class="display-book">
+                <img src="<%= book.thumbnail && book.thumbnail.length ? book.thumbnail : '/assets/no-book-cover.png' %>"
+                  alt="Book cover for <%= book.title %>" class="favorite-book-img"/>
+                <p class="favorite-details"> <%= book.title %> by <%= book.authors.join(', ') %></p>
+              </div>
+            <% }); %>
+            </div> 
+          </div>
+
           <%# BOOK ADDED FLASH MESSAGE %>
           <%_ if (typeof message !== 'undefined') { _%>
             <h3 id="flash-message" class="alert"><%= message %></h3>

@@ -8,8 +8,13 @@ const axios = require('axios');
 router.get('/', async (req, res) => {
 try {
     const user = await User.findById(req.session.user._id);
+
     // show books from newest added to oldest
-    let bookshelf = [...user.bookshelf].reverse();
+    const fullBookshelf = [...user.bookshelf].reverse();
+
+    const favorites = fullBookshelf.filter(book => book && book.isFavorite === true);
+
+    let bookshelf = fullBookshelf;
 
     if (req.query.status && req.query.status !== 'all') {
       bookshelf = bookshelf.filter(
@@ -19,12 +24,15 @@ try {
 
     res.locals.bookshelf = user.bookshelf;
     res.locals.user = user;
+
+    console.log('Favorites:',favorites.map(b => ({ title: b.title, isFavorite: b.isFavorite })));
       
     res.render('books/index.ejs', {
       title: `${user.username}'s Bookshelf`,
       user,
       bookshelf,
-      selectedStatus: req.query.status || 'all'
+      favorites,
+      selectedStatus: req.query.status || 'all',
     });
 
     } catch (error) {
@@ -59,7 +67,7 @@ router.post('/search', async (req, res) => {
     const results = response.data.items.map(item => ({
       title: item.volumeInfo.title,
       authors: item.volumeInfo.authors || [],
-      thumbnail: item.volumeInfo.imageLinks?.thumbnail || '/assets/no-book-cover.png',
+      thumbnail: item.volumeInfo.imageLinks?.thumbnail?.replace('http://', 'https://') || '/assets/no-book-cover.png',
       publishedDate: item.volumeInfo.publishedDate
     }));
 
@@ -110,11 +118,12 @@ router.post('/manual', async (req, res) => {
     user.bookshelf.push({ 
         title: req.body.title,
         authors: req.body.authors ? req.body.authors.split(',') : [],
-        thumbnail: req.body.thumbnail || '',
+        thumbnail: req.body.thumbnail || '/assets/no-book-cover.png',
         publishedDate: req.body.publishedDate || '',
         status: req.body.status,
         review: req.body.review || '',
         rating: req.body.rating ? Number(req.body.rating) : undefined,
+        isFavorite: req.body.isFavorite === 'on',
         source: 'manual'
     });
     await user.save();
@@ -183,7 +192,18 @@ router.get('/:itemId', async (req, res) => {
       const user = await User.findById(req.session.user._id);
       const book = user.bookshelf.id(req.params.itemId);
 
-      book.set(req.body);
+      book.title = req.body.title;
+      book.authors = req.body.authors
+        ? req.body.authors.split(',')
+        : [];
+      book.thumbnail = req.body.thumbnail;
+      book.publishedDate = req.body.publishedDate;
+      book.status = req.body.status;
+      book.review = req.body.review;
+      book.rating = req.body.rating
+        ? Number(req.body.rating)
+        : undefined;
+      book.isFavorite = req.body.isFavorite === 'on';
       
       await user.save();
       req.session.message = "Book successfully edited.";

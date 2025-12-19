@@ -255,6 +255,42 @@ nav {
 }
 
 /* styling for show page */
+.favorites {
+  text-align: center;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.display-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.favorite-book-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+
+}
+
+.favorite-details {
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.9em;
+  text-align: center;
+}
+
 .show-selected-book {
   background-color: #f0f0f0; 
   padding: 20px;            
