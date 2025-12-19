@@ -86,6 +86,8 @@
 
 - Modify sign up/sign in routes to normalize username's with capital or lowercase letters (to prevent sign in errors!)
 
+- Add functionality to update progress of book you are currently read (ie: page count)
+
 - Improve Error.ejs page to display error message for the given error, rather than just 'error'
 
 - Refactor for mobile first design/responsive styles
